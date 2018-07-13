@@ -6,19 +6,19 @@ def trader_obscur
 
       values=[]
       currencies=[]
-    doc.xpath('//a[@class= "price"]/text()').each do |v|
+    doc.xpath('//a[@class= "price"]/text()').each do |v| #on entre toutes les valeurs dans un tableau values
        values<<v.text
      end
 
     doc.xpath('//a[@class= "currency-name-container link-secondary"]').each do |v|
-       currencies<<v.text
+       currencies<<v.text    #on entre toutes les devises dans un tableau  currencies
      end
 
 
 
-hash=currencies.zip(values).to_h
+hash=currencies.zip(values).to_h #on combine les deux tableaux dans un hash 
 
 puts hash
 end
 
-trader_obscur
+every trader_obscur
