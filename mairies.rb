@@ -35,12 +35,30 @@ def all_the_mails_of_val_doise_townhalls
     doc.xpath('//*[contains(text(), "@" )]').each do |v|
       @mail_mairies<< v.text
   end
-  puts @mail_mairies
+   puts @mail_mairies
  end
 
 end
 
-all_the_urls_of_val_doise_townhalls
-all_the_mails_of_val_doise_townhalls
+def magic_hash
+  city_names=[]
+  doc = Nokogiri::HTML(open('http://annuaire-des-mairies.com/val-d-oise.html'))
+  doc.xpath('//p/a[@class = "lientxt"]/text()').each do |node|
+    city_names << node.text
+end
+    all_the_mails_of_val_doise_townhalls
+
+  x = 0
+  city_hash={}
+while x < ( city_names.size )
+ city_hash = { 'name' => city_names[x], 'email' => @mail_mairies[x] }
+ puts city_hash
+ x += 1
+end
+
+end
+magic_hash
+#all_the_urls_of_val_doise_townhalls
+#all_the_mails_of_val_doise_townhalls
 
 #the_email_of_a_townhal_from_its_webpage

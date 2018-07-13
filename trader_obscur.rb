@@ -14,7 +14,7 @@ def trader_obscur
        currencies<<v.text
      end
 
-sleep 3600 
+
 
 hash=currencies.zip(values).to_h
 
