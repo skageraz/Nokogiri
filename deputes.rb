@@ -42,6 +42,7 @@ def links
     end
   puts @emails
   end
-end
+
 
 noms
+links
